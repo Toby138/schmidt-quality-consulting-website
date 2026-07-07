@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <title>Teststrategie &amp; V&amp;V Governance für Embedded-Programme | Tobias Schmidt</title>
+  <meta name="description" content="Beratung für Teststrategie, V&V Governance und Qualitätssteuerung in Embedded-, Mechatronik- und sicherheitskritischen Programmen. Risiken früher sehen, Releases sicher entscheiden.">
+  <!-- TODO: Domain eintragen und Zeile aktivieren -->
+  <!-- <link rel="canonical" href="https://www.ihre-domain.de/"> -->
+  <meta property="og:title" content="Qualität wirksam steuern. Entwicklungsprogramme stabilisieren. | Tobias Schmidt">
+  <meta property="og:description" content="Teststrategie, V&V Governance und Qualitätssteuerung für komplexe Embedded- und sicherheitskritische Entwicklungsprogramme.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='9' fill='%23101F36'/%3E%3Cpath d='M15 18 32 46 49 18' fill='none' stroke='%233D8BFF' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='11' y='14' width='8' height='8' fill='%234CC9F0'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Tobias Schmidt — Teststrategie, V&V Governance & Qualitätssteuerung",
+    "description": "Beratung für Teststrategie, V&V Governance und Qualitätssteuerung in komplexen Embedded-, mechatronischen und sicherheitskritischen Entwicklungsprogrammen.",
+    "founder": { "@type": "Person", "name": "Tobias Schmidt", "jobTitle": "Freiberuflicher Berater für Teststrategie, V&V Governance und Qualitätssteuerung" },
+    "knowsAbout": ["Teststrategie", "V&V Governance", "Release Readiness", "Quality Gates", "Embedded Systems Testing", "Programmstabilisierung", "Qualitätssteuerung"],
+    "areaServed": ["DE", "AT", "CH"],
+    "email": "Tobias.schmidt.consulting@outlook.com"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-head">
+    <div class="container head-row">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">TS</span>
+        <span class="brand-text">
+          <strong>Tobias Schmidt</strong>
+          <span>Teststrategie · V&amp;V · Qualitätssteuerung</span>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ansatz">Ansatz</a>
+        <a href="projekterfolge.html">Projekterfolge</a>
+        <a href="werdegang.html">Werdegang</a>
+        <a href="faq.html">FAQ</a>
+        <a class="btn btn-primary btn-small" href="kontakt.html">Erstgespräch vereinbaren</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menü</button>
+    </div>
+  </header>
+
+  <main id="inhalt">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container">
+        <h1>
+          <span class="h1-line claim-know rise" style="--d:.05s">Qualität wirksam steuern.</span>
+          <span class="h1-line claim-grow rise" style="--d:.15s">Entwicklungsprogramme stabilisieren.</span>
+          <span class="h1-line claim-together rise" style="--d:.25s">Wettbewerbsvorteile schaffen.</span>
+        </h1>
+        <p class="hero-claim rise" style="--d:.32s">
+          <span class="claim-know">Test to Know.</span>
+          <span class="claim-sep" aria-hidden="true">|</span>
+          <span class="claim-grow">Test to Grow.</span>
+          <span class="claim-sep" aria-hidden="true">|</span>
+          <span class="claim-together">Test Together.</span>
+        </p>
+        <p class="lead rise" style="--d:.4s">
+          Spät erkannte Qualitätsrisiken kosten <strong>Zeit, Geld und Vertrauen</strong>: Sie
+          gefährden Releases, verzögern Entwicklungsprogramme und belasten Kundenbeziehungen.
+        </p>
+        <p class="hero-sub rise" style="--d:.48s">
+          Ich helfe Unternehmen, Qualität von Anfang an so zu steuern, dass Risiken früher sichtbar,
+          Releases belastbarer und Entwicklungsprogramme planbarer werden.
+        </p>
+        <p class="hero-exp rise" style="--d:.56s">
+          Über 15 Jahre Erfahrung in Embedded- und Mechatronik-Programmen mit sicherheitskritischem
+          Anspruch — von regulierten Entwicklungsumfeldern und internationalen Teams bis zur
+          unternehmensweiten Test- und V&amp;V Governance.
+        </p>
+        <div class="hero-cta rise" style="--d:.64s">
+          <a class="btn btn-primary" href="kontakt.html">Unverbindliches Erstgespräch vereinbaren</a>
+          <a class="btn btn-ghost" href="#leistungen">Leistungen im Überblick</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LAGEBILD ============ -->
+    <section class="section section-alt" id="problem">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Lagebild</p>
+          <h2>Fünf Lagen, in denen Qualität zur Führungsfrage wird.</h2>
+          <p class="lead">Die entscheidenden Qualitätsrisiken entstehen früh — sichtbar werden sie erst, wenn sie Termine, Budget und Vertrauen kosten. Erkennen Sie Ihre Lage wieder?</p>
+        </div>
+        <div class="diagnose-list" aria-label="Situation, Zielbild und passender Ansatz">
+
+          <article class="dg-row reveal">
+            <span class="dg-num" aria-hidden="true">01</span>
+            <div class="dg-situation">
+              <h3 class="dg-question">„Wie weit sind wir wirklich — und halten die Termine?"</h3>
+              <p class="dg-detail">Der Serienstart rückt näher, doch der Systemtest meldet Woche für Woche neue kritische Fehler. Das Management fragt täglich nach.</p>
+            </div>
+            <div class="dg-arrow" aria-hidden="true"></div>
+            <div class="dg-goal">
+              <span class="dg-goal-label">Zielbild</span>
+              <p>Ein Programm, das wieder planbar liefert — mit klaren Aussagen zu Restrisiko, Terminen und Release-Fähigkeit.</p>
+              <a class="dg-route" href="leistungen/program-stabilization.html">Programmstabilisierung →</a>
+            </div>
+          </article>
+
+          <article class="dg-row reveal">
+            <span class="dg-num" aria-hidden="true">02</span>
+            <div class="dg-situation">
+              <h3 class="dg-question">„Was bringt unser Testen eigentlich?"</h3>
+              <p class="dg-detail">Das Testteam arbeitet am Anschlag, Regressionen dauern lange — und trotzdem rutschen kritische Fehler durch.</p>
+            </div>
+            <div class="dg-arrow" aria-hidden="true"></div>
+            <div class="dg-goal">
+              <span class="dg-goal-label">Zielbild</span>
+              <p>Testaufwand, der dort wirkt, wo das Risiko liegt — und Qualitätskosten, die sichtbar sinken.</p>
+              <a class="dg-route" href="leistungen/test-value-quality-cost-optimization.html">Testwirksamkeit &amp; Qualitätskosten →</a>
+            </div>
+          </article>
+
+          <article class="dg-row reveal">
+            <span class="dg-num" aria-hidden="true">03</span>
+            <div class="dg-situation">
+              <h3 class="dg-question">„Können wir guten Gewissens freigeben?"</h3>
+              <p class="dg-detail">Viele Reports, Quality Gates und Statusrunden — aber keine klare Antwort auf die eine Frage, die zählt.</p>
+            </div>
+            <div class="dg-arrow" aria-hidden="true"></div>
+            <div class="dg-goal">
+              <span class="dg-goal-label">Zielbild</span>
+              <p>Transparenz über Reifegrad, Risiken und Hebel — als tragfähige Grundlage für Release-Entscheidungen.</p>
+              <a class="dg-route" href="leistungen/test-strategy-assessment.html">Teststrategie-Analyse →</a>
+            </div>
+          </article>
+
+          <article class="dg-row reveal">
+            <span class="dg-num" aria-hidden="true">04</span>
+            <div class="dg-situation">
+              <h3 class="dg-question">„Wer steuert hier eigentlich das Ganze?"</h3>
+              <p class="dg-detail">Test, Entwicklung und Qualität arbeiten engagiert, aber ohne gemeinsames Steuerungsmodell. Rollen und Gates greifen nicht ineinander.</p>
+            </div>
+            <div class="dg-arrow" aria-hidden="true"></div>
+            <div class="dg-goal">
+              <span class="dg-goal-label">Zielbild</span>
+              <p>Eine V&amp;V Governance, die Qualität früh sichtbar macht und Release-Entscheidungen verlässlich vorbereitet.</p>
+              <a class="dg-route" href="leistungen/test-strategie-und-vv-governance.html">Teststrategie &amp; V&amp;V Governance →</a>
+            </div>
+          </article>
+
+          <article class="dg-row reveal">
+            <span class="dg-num" aria-hidden="true">05</span>
+            <div class="dg-situation">
+              <h3 class="dg-question">„Wer hält das jetzt zusammen?"</h3>
+              <p class="dg-detail">Eine Schlüsselrolle ist vakant oder überlastet — während internationale Teams, Defects und Release Readiness weiter koordiniert werden müssen.</p>
+            </div>
+            <div class="dg-arrow" aria-hidden="true"></div>
+            <div class="dg-goal">
+              <span class="dg-goal-label">Zielbild</span>
+              <p>Erfahrene operative Steuerung und eine belastbare Schnittstelle zwischen Entwicklung, Test, Qualität und Management.</p>
+              <a class="dg-route" href="leistungen/interim-test-manager.html">Interim-Testmanagement &amp; Qualitätssteuerung →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEISTUNGEN ============ -->
+    <section class="section" id="leistungen">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Leistungen</p>
+          <h2>Fünf Wege, Qualität wirksam zu steuern.</h2>
+          <p class="lead">Je nach Lage Ihres Entwicklungsprogramms unterstütze ich dabei, akute Qualitätsrisiken zu stabilisieren, Testaufwände wirksamer auszurichten, Steuerungsstrukturen aufzubauen oder temporär Verantwortung in der Test- und Qualitätssteuerung zu übernehmen.</p>
+        </div>
+        <div class="card-grid">
+          <a class="card reveal" href="leistungen/program-stabilization.html">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"></path></svg></span>
+            <span class="card-scope">Akut-Einsatz · Wochen</span>
+            <h3>Programmstabilisierung</h3>
+            <p class="card-trigger">Wenn der Serienstart wackelt und der Systemtest kritische Fehler meldet.</p>
+            <p class="card-benefit">Programm wieder planbar machen: belastbares Lagebild zu Restrisiko, Terminen und Release-Fähigkeit — damit Sie steuern statt hoffen.</p>
+            <span class="card-more">Kritisches Programm besprechen →</span>
+          </a>
+          <a class="card reveal" href="leistungen/test-value-quality-cost-optimization.html">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6.5"></circle><circle cx="12" cy="12" r="2.2"></circle><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"></path></svg></span>
+            <span class="card-scope">Optimierung · projektbezogen</span>
+            <h3>Testwirksamkeit &amp; Qualitätskosten</h3>
+            <p class="card-trigger">Wenn viel getestet wird, aber das Risiko kaum sinkt.</p>
+            <p class="card-benefit">Testaufwand dorthin lenken, wo er Risiko senkt — messbar weniger Aufwand bei gleicher oder höherer Sicherheit.</p>
+            <span class="card-more">Testaufwand und Wirkung prüfen →</span>
+          </a>
+          <a class="card reveal" href="leistungen/test-strategy-assessment.html">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M15.8 15.8 21 21"></path><path d="M8 11h1.4l.9-2.2 1.4 4.4.9-2.2H14"></path></svg></span>
+            <span class="card-scope">Analyse · wenige Wochen</span>
+            <h3>Teststrategie-Analyse</h3>
+            <p class="card-trigger">Wenn unklar ist, wo die größten Qualitäts- und Steuerungsrisiken liegen.</p>
+            <p class="card-benefit">Kompakter Assessment-Bericht mit priorisierten Handlungsfeldern und schnellen Hebeln — Klarheit in wenigen Wochen.</p>
+            <span class="card-more">Analyse besprechen →</span>
+          </a>
+          <a class="card reveal" href="leistungen/test-strategie-und-vv-governance.html">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 9-8 9-8-9z"></path><path d="M9.4 12l1.9 1.9 3.3-3.8"></path></svg></span>
+            <span class="card-scope">Aufbau · mehrere Monate</span>
+            <h3>Teststrategie &amp; V&amp;V Governance</h3>
+            <p class="card-trigger">Wenn Qualität von Anfang an wirksamer gesteuert werden soll.</p>
+            <p class="card-benefit">Quality Gates, Rollen und Kriterien, die Freigabe-Entscheidungen wirklich tragen — statt sie nur zu dokumentieren.</p>
+            <span class="card-more">Steuerungsansatz kennenlernen →</span>
+          </a>
+          <a class="card reveal" href="leistungen/interim-test-manager.html">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h11M12.5 6.5 15 9l-2.5 2.5"></path><path d="M20 15H9M11.5 12.5 9 15l2.5 2.5"></path></svg></span>
+            <span class="card-scope">Interim-Mandat · Monate</span>
+            <h3>Interim-Testmanagement &amp; Qualitätssteuerung</h3>
+            <p class="card-trigger">Wenn eine Schlüsselrolle sofort besetzt werden muss.</p>
+            <p class="card-benefit">Erfahrene operative Steuerung ab Tag eins — Test, Entwicklung, Qualität und Management an einer Hand.</p>
+            <span class="card-more">Verfügbarkeit anfragen →</span>
+          </a>
+          <div class="card card-cta reveal">
+            <h3>Nicht sicher, welcher Weg passt?</h3>
+            <p>In einem kurzen Erstgespräch ordnen wir Ihre Lage gemeinsam ein — und Sie wissen, welcher Schritt sich zuerst lohnt.</p>
+            <a class="btn btn-primary" href="kontakt.html">Unverbindliches Erstgespräch →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEIN ANSATZ ============ -->
+    <section class="section" id="ansatz">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Mein Ansatz</p>
+          <h2>Gute Teststrategie bedeutet nicht mehr Tests. Sie bedeutet bessere Steuerung.</h2>
+          <p class="lead">Mein Ansatz macht Qualität zum Führungsinstrument — in drei Wirkungsrichtungen, die ineinandergreifen.</p>
+        </div>
+        <div class="pillars">
+          <article class="pillar reveal">
+            <span class="pillar-tag">Test to Know</span>
+            <h3>Wissen, wo Sie stehen.</h3>
+            <p>
+              Risiken, Reifegrad und verbleibende Unsicherheiten sichtbar machen — mit klarer
+              Teststrategie, aussagekräftigen Kennzahlen und überprüfbaren Entry- und Exit-Kriterien.
+            </p>
+            <p class="pillar-outcome">Freigabe-Entscheidungen auf Fakten statt Bauchgefühl.</p>
+          </article>
+          <article class="pillar reveal">
+            <span class="pillar-tag">Test to Grow</span>
+            <h3>Strukturen, die tragen.</h3>
+            <p>
+              Teststrategie, V&amp;V Governance und Prozesse so weiterentwickeln, dass Programme
+              stabiler, effizienter und planbarer werden.
+            </p>
+            <p class="pillar-outcome">Programme, die verlässlich und planbar liefern.</p>
+          </article>
+          <article class="pillar reveal">
+            <span class="pillar-tag">Test Together</span>
+            <h3>Alle auf ein Ziel.</h3>
+            <p>
+              Entwicklung, Test, Qualität und Management auf gemeinsame Ziele und Kriterien
+              ausrichten. Qualität entsteht nicht in einer Abteilung — sie entsteht in
+              Zusammenarbeit.
+            </p>
+            <p class="pillar-outcome">Keine bösen Überraschungen an den Schnittstellen.</p>
+          </article>
+        </div>
+        <p class="ansatz-outcome reveal">
+          <span class="ansatz-outcome-label">Das Ergebnis für Sie</span>
+          Weniger späte Überraschungen, belastbare Release-Entscheidungen und Programme, denen
+          Management und Kunden wieder vertrauen.
+        </p>
+        <div class="approach-fig">
+          <figure class="fig reveal">
+            <svg viewBox="0 0 520 345" role="img" aria-labelledby="loop-titel loop-desc">
+              <title id="loop-titel">Regelkreis aus Know, Grow und Together</title>
+              <desc id="loop-desc">Drei Knoten — Know, Grow und Together — sind durch Pfeile zu einem Kreislauf verbunden: Transparenz schafft Verbesserung, Verbesserung schafft Ausrichtung, Ausrichtung schafft neue Transparenz.</desc>
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#0284c7"></path>
+                </marker>
+              </defs>
+              <path d="M176,62 A170,170 0 0 1 344,62" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"></path>
+              <path d="M432,126 A170,170 0 0 1 310,232" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"></path>
+              <path d="M210,232 A170,170 0 0 1 88,126" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr)"></path>
+              <circle cx="120" cy="90" r="48" fill="#eef4fb" stroke="#0284c7" stroke-width="2"></circle>
+              <circle cx="400" cy="90" r="48" fill="#eef4fb" stroke="#0284c7" stroke-width="2"></circle>
+              <circle cx="260" cy="255" r="48" fill="#eef4fb" stroke="#0284c7" stroke-width="2"></circle>
+              <text x="120" y="97" text-anchor="middle" style="font:600 19px 'IBM Plex Sans',sans-serif; fill:#0284c7;">Know</text>
+              <text x="400" y="97" text-anchor="middle" style="font:600 19px 'IBM Plex Sans',sans-serif; fill:#0284c7;">Grow</text>
+              <text x="260" y="262" text-anchor="middle" style="font:600 19px 'IBM Plex Sans',sans-serif; fill:#0284c7;">Together</text>
+              <text class="svgl svgl-halo" x="120" y="162" text-anchor="middle">Transparenz schaffen</text>
+              <text class="svgl svgl-halo" x="400" y="162" text-anchor="middle">Strukturen verbessern</text>
+              <text class="svgl svgl-halo" x="260" y="332" text-anchor="middle">Gemeinsam ausrichten</text>
+            </svg>
+            <figcaption class="fig-caption">
+              <span class="fig-no">Abb. 02</span>
+              <span>Qualität als Regelkreis: sehen, verbessern, ausrichten — und wieder von vorn.</span>
+            </figcaption>
+          </figure>
+          <div class="reveal">
+            <h3>Ein Regelkreis, kein einmaliges Projekt</h3>
+            <p>
+              Die drei Wirkungsrichtungen bedingen einander: Transparenz zeigt, wo Strukturen
+              verbessert werden müssen. Bessere Strukturen liefern verlässlichere Informationen.
+              Und beides trägt nur, wenn alle Disziplinen dieselben Ziele und Kriterien teilen.
+            </p>
+            <p>
+              So wird Qualität vom nachgelagerten Prüfschritt zum Steuerungsinstrument des Programms:
+              Sie gibt früher Orientierung, macht Zielkonflikte sichtbar, bevor sie eskalieren, und
+              schafft die Grundlage für Entscheidungen, die halten.
+            </p>
+            <a class="approach-proof" href="projekterfolge.html">Wie das in echten Programmen aussah — Projekterfolge →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WARUM DIE ZUSAMMENARBEIT WIRKT ============ -->
+    <section class="section section-alt" id="warum">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Über mich</p>
+          <h2>Warum Programme mit mir wieder steuerbar werden.</h2>
+          <p class="lead">Sie holen sich keinen Methodenkatalog ins Haus, sondern einen Sparringspartner, der Ihre Situation kennt, Klartext spricht und Verantwortung mitträgt.</p>
+        </div>
+        <div class="why-grid">
+          <div class="points-grid">
+            <div class="point reveal">
+              <h3>Übersetzer zwischen den Welten</h3>
+              <p>Technische Tiefe, Governance-Erfahrung und Business-Verständnis: Ich übersetze zwischen Management, Entwicklung, Test und Qualität — in beide Richtungen.</p>
+            </div>
+            <div class="point reveal">
+              <h3>Qualität als Geschäftshebel</h3>
+              <p>Der Blick geht über den Test hinaus: auf Planbarkeit, Time-to-Market, Qualitätskosten und Kundenvertrauen.</p>
+            </div>
+            <div class="point reveal">
+              <h3>In der Serie bewährt</h3>
+              <p>15+ Jahre in sicherheitskritischem Embedded &amp; Mechatronik; 5 ASIL-D/-B-Programme in Serie gebracht — auch in regulierten Umfeldern.</p>
+            </div>
+            <div class="point reveal">
+              <h3>International erprobt</h3>
+              <p>Testorganisationen über 5 Länder (DE/IN/RO/CN/TN) fachlich gesteuert — funktionsübergreifend, auf Deutsch und Englisch.</p>
+            </div>
+            <div class="point reveal">
+              <h3>Steuerung statt Bürokratie</h3>
+              <p>Gates, Kennzahlen und Prozesse, die Entscheidungen ermöglichen statt Aufwand zu erzeugen — Lösungen, die die Teams tragen, nicht der Aktenschrank.</p>
+            </div>
+            <div class="point reveal">
+              <h3>Wirksam ohne formales Mandat</h3>
+              <p>Richtet Teams über Bereichs- und Standortgrenzen aus und schafft Momentum — auch ohne Linienautorität.</p>
+            </div>
+          </div>
+          <aside class="photo-slot reveal" aria-label="Qualifikationen">
+            <h3 class="credentials-title">Qualifikationen</h3>
+            <ul class="credentials">
+              <li>Diplom-Informatiker (FH), Computer Engineering</li>
+              <li>ISTQB Certified Tester Advanced Level – Test Manager</li>
+              <li>ISO 26262 (bis ASIL-D) · ISO/SAE 21434</li>
+              <li>15+ Jahre sicherheitskritisches Embedded &amp; Mechatronik</li>
+            </ul>
+            <a class="approach-proof" href="werdegang.html">Vollständiger Werdegang &amp; Profil &rarr;</a>
+          </aside>
+        </div>
+        <a class="approach-proof reveal" href="kontakt.html">Lieber persönlich? Erstgespräch vereinbaren →</a>
+      </div>
+    </section>
+
+    <!-- ============ PROJEKTERFOLGE (TEASER) ============ -->
+    <section class="section" id="projekterfolge-teaser">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Projekterfolge</p>
+          <h2>Belegte Wirkung in kritischen Serienprogrammen.</h2>
+          <p class="lead">Zwei Programme, in denen aus einer kritischen Lage wieder Steuerbarkeit wurde — anonymisiert, aber real und referenziert.</p>
+        </div>
+        <div class="cases cases-2">
+          <article class="case reveal">
+            <p class="case-kicker">Programm-Stabilisierung</p>
+            <h3>Kritisches Zugangs- &amp; Fahrberechtigungssystem unter Termindruck stabilisiert</h3>
+            <p class="case-lead">Ein verteiltes, kundenrelevantes Schlüsselsystem (mehrere Steuergeräte + Mobile App, 50+ Ingenieure über 4 Standorte) — in rund 5 Monaten aus reaktivem Modus in eine strukturierte, risikobasierte Validierung überführt. Deutlich weniger späte Fehler, datenbasierte Freigaben, keine Eskalationen — 12 Monate nach Übergabe stabil.</p>
+          </article>
+          <article class="case reveal">
+            <p class="case-kicker">Enterprise-V&amp;V-Governance</p>
+            <h3>Unternehmensweite V&amp;V-Governance über 1.000+ Ingenieure aufgebaut</h3>
+            <p class="case-lead">In einer globalen R&amp;D-Organisation (1.000+ Ingenieure, 5 Länder) in 12 Monaten eine bereichsübergreifende V&amp;V-Governance etabliert — Enterprise-Framework, Quality Gates, risikobasierte Reifegradbewertung, cross-funktionale Defect-Governance. Ausgerichtet an ISO 26262 (ASIL-D), Automotive SPICE, ISO 29119.</p>
+          </article>
+        </div>
+        <p class="reveal" style="margin-top:32px;">
+          <a class="btn btn-ghost" href="projekterfolge.html">Projekterfolge im Detail ansehen</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ REFERENZSTIMMEN ============ -->
+    <section class="section section-alt" id="referenzen">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Referenzstimmen</p>
+          <h2>Was andere über die Zusammenarbeit sagen.</h2>
+        </div>
+        <figure class="quotes reveal">
+          <blockquote class="quote quote-lead">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="quote-text">Ein fragmentiertes, domänenspezifisches Testing-Setup wurde innerhalb kurzer Zeit in einen strukturierten und skalierbaren V&amp;V-Governance-Ansatz überführt — mit erhöhter Transparenz über Qualitätsrisiken und der Stabilisierung kritischer Programme.</p>
+            <figcaption class="quote-role">Externes Fachreview · Mitglied des German Testing Board (GTB)</figcaption>
+          </blockquote>
+          <blockquote class="quote">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="quote-text">Tobias hat entscheidend dazu beigetragen, eine kritische Projektsituation zu stabilisieren. Besonders hervorzuheben sind sein Fokus auf risikobasierte Priorisierung und seine Fähigkeit, belastbare, datenbasierte Freigabeentscheidungen in einem komplexen, funktionsübergreifenden Setup zu ermöglichen.</p>
+            <figcaption class="quote-role">Head of Functional Test · Business Unit eines globalen Automotive-Zulieferers</figcaption>
+          </blockquote>
+          <blockquote class="quote">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="quote-text">Wer mit ihm zusammenarbeitet, gewinnt einen Experten, der komplexe Situationen strukturiert, Teams ausrichtet und Qualität, Risikotransparenz und Lieferfähigkeit sichtbar verbessert.</p>
+            <figcaption class="quote-role">Director System Engineering &amp; Test · globaler Automotive-Zulieferer</figcaption>
+          </blockquote>
+          <blockquote class="quote">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="quote-text">Tobias hat Menschen aus unterschiedlichen Engineering-Disziplinen zu einem schlagkräftigen, agilen Team zusammengeführt — mit kontinuierlichem Lernen, funktionsübergreifender Zusammenarbeit und geteilter Verantwortung, auch in kritischen Situationen.</p>
+            <figcaption class="quote-role">Enterprise Agile Coach · Automotive-Zulieferer</figcaption>
+          </blockquote>
+          <blockquote class="quote">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <p class="quote-text">Sein ruhiger, strukturierter Umgang mit komplexen Test- und V&amp;V-Themen brachte Klarheit, Fokus und Transparenz in ein anspruchsvolles Umfeld.</p>
+            <figcaption class="quote-role">Senior Expert Testing &amp; Processes · Automotive-Zulieferer</figcaption>
+          </blockquote>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ ERFAHRUNGSSCHWERPUNKT & EINSATZFELDER ============ -->
+    <section class="section" id="branchen">
+      <div class="container">
+        <div class="section-head reveal" style="margin-bottom:32px;">
+          <p class="eyebrow">Erfahrungsschwerpunkt &amp; anschlussfähige Einsatzfelder</p>
+          <h2>Dort wirksam, wo Systeme komplex und Fehler teuer sind.</h2>
+        </div>
+        <div class="fields-2 reveal">
+          <div class="proof-field">
+            <p class="proof-sublabel">Erfahrungsschwerpunkt</p>
+            <p class="proof-field-val proof-field-strong">Automotive · Embedded&nbsp;Systems · Mechatronik · sicherheitskritische&nbsp;Systeme · regulierte&nbsp;Entwicklungsumfelder</p>
+          </div>
+          <div class="proof-field">
+            <p class="proof-sublabel">Anschlussfähige Einsatzfelder</p>
+            <p class="proof-field-val">MedTech · Maschinenbau · Robotics · Aerospace · Industrial&nbsp;Automation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINALER CTA ============ -->
+    <section class="cta-band" id="kontakt-cta">
+      <div class="container">
+        <p class="eyebrow reveal">Erstgespräch</p>
+        <h2 class="reveal">Lassen Sie uns über Ihr Programm sprechen.</h2>
+        <p class="reveal">
+          In 30 bis 45 Minuten klären wir, wo Ihr Programm steht, welche Risiken drängen und ob ich
+          Ihnen helfen kann. Unverbindlich, vertraulich und auf den Punkt — und wenn ich nicht der
+          Richtige bin, sage ich Ihnen auch das.
+        </p>
+        <div class="cta-actions reveal">
+          <a class="btn btn-light" href="kontakt.html">Erstgespräch vereinbaren</a>
+          <a class="btn btn-outline-light" href="mailto:Tobias.schmidt.consulting@outlook.com?subject=Anfrage%20Erstgespr%C3%A4ch">E-Mail schreiben</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <strong>Tobias Schmidt</strong>
+          <p>Freiberuflicher Berater für Teststrategie, V&amp;V Governance und Qualitätssteuerung in komplexen Embedded-, mechatronischen und sicherheitskritischen Entwicklungsprogrammen.</p>
+        </div>
+        <div>
+          <h3>Navigation</h3>
+          <ul class="foot-list">
+            <li><a href="index.html#leistungen">Leistungen</a></li>
+            <li><a href="index.html#ansatz">Ansatz</a></li>
+            <li><a href="projekterfolge.html">Projekterfolge</a></li>
+            <li><a href="werdegang.html">Werdegang</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul class="foot-list">
+            <li><a href="mailto:Tobias.schmidt.consulting@outlook.com">Tobias.schmidt.consulting@outlook.com</a></li>
+            <li><a href="https://www.linkedin.com/in/tobias-schmidt-292591103" rel="noopener">LinkedIn-Profil</a></li>
+            <li>Remote &amp; vor Ort · DACH und international</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-meta">
+        <span>© <span id="jahr">2026</span> Tobias Schmidt</span>
+        <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>

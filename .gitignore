@@ -1,0 +1,21 @@
+# Betriebssystem- / OneDrive-Artefakte
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs / temporäre Dateien
+*.log
+.cache/
+
+# Sicherheitsnetz: Originaldokumente / Nachweise gehören NICHT in dieses
+# öffentliche Repo. Falls solche Ordner je hier landen, bleiben sie ignoriert.
+Testimonials/
+Testimonials_Md/
+*.pdf
