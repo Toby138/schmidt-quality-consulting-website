@@ -1027,6 +1027,36 @@ ul {
 .case-lead strong {
   color: var(--ink);
 }
+.case-metrics {
+  margin: 0 0 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  font: 500 0.82rem var(--font-mono);
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  color: var(--petrol);
+}
+.case-steps {
+  margin: 0 0 12px;
+  padding-left: 1.4em;
+  color: var(--ink-soft);
+  line-height: 1.62;
+}
+.case-steps li {
+  margin: 0 0 10px;
+  padding-left: 0.3em;
+}
+.case-steps li:last-child {
+  margin-bottom: 0;
+}
+.case-steps strong {
+  color: var(--ink);
+}
+.case-cta {
+  margin: 22px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
 .case-quote {
   margin: 24px 0 0;
   padding: 4px 0 4px 20px;
@@ -1048,7 +1078,7 @@ ul {
 /* ---------- Kundenstimmen / Zitate ---------- */
 .quotes {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
 }
 .quote {
@@ -1060,21 +1090,11 @@ ul {
   border-radius: var(--radius);
   padding: 24px 28px 22px;
 }
-/* Leit-Zitat: volle Breite, stärker betont */
-.quote-lead {
-  grid-column: 1 / -1;
-  border-left-width: 4px;
-  padding: 30px 34px 26px;
-}
 .quote-mark {
   font: 700 3.2rem var(--font-display);
   line-height: 0.6;
   color: var(--line-bright);
   margin-bottom: 10px;
-}
-.quote-lead .quote-mark {
-  color: var(--cyan);
-  font-size: 3.8rem;
 }
 .quote-text {
   margin: 0 0 16px;
@@ -1082,10 +1102,6 @@ ul {
   color: var(--ink);
   font-size: 1.04rem;
   line-height: 1.6;
-}
-.quote-lead .quote-text {
-  font-size: 1.28rem;
-  line-height: 1.62;
 }
 .quote-role {
   margin-top: auto;
