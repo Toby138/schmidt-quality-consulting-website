@@ -918,6 +918,7 @@ ul {
 .profile-photo {
   display: block;
   width: calc(100% + 52px);
+  max-width: none;
   margin: -26px -26px 22px;
   border-radius: var(--radius) var(--radius) 0 0;
   background: var(--paper-2);
