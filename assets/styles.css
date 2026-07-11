@@ -915,6 +915,13 @@ ul {
   padding: 26px 26px 24px;
   color: var(--ink-soft);
 }
+.profile-photo {
+  display: block;
+  width: calc(100% + 52px);
+  margin: -26px -26px 22px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--paper-2);
+}
 .credentials-title {
   margin: 0 0 16px;
   padding-bottom: 12px;
