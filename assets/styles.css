@@ -1006,7 +1006,7 @@ ul {
 }
 /* Ruhiger Abschluss der Über-mich-Sektion: Kernumfeld als kompakte Zeile */
 .why-fields {
-  margin: clamp(30px, 4vw, 44px) 0 0;
+  margin: clamp(52px, 5vw, 66px) 0 0;
   max-width: 900px;
   font-size: 0.98rem;
   line-height: 1.65;
