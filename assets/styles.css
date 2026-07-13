@@ -544,6 +544,7 @@ ul {
 }
 .dg-row {
   position: relative;
+  cursor: pointer;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) 52px minmax(0, 0.95fr);
   align-items: center;
@@ -652,6 +653,13 @@ ul {
 .dg-route:hover {
   color: var(--cyan);
   text-decoration: underline;
+}
+/* ganze Karte klickbar: Route-Link ueber die Karte spannen */
+.dg-route::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 .transition-line {
   margin-top: 28px;
