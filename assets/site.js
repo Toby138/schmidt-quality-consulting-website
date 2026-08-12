@@ -54,8 +54,8 @@
     });
   }
 
-  /* Jahr im Footer */
-  var year = document.getElementById("jahr");
+  /* Jahr im Footer (DE: #jahr, EN: #year) */
+  var year = document.getElementById("jahr") || document.getElementById("year");
   if (year) {
     year.textContent = String(new Date().getFullYear());
   }

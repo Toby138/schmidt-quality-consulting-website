@@ -289,6 +289,36 @@ ul {
   cursor: pointer;
   color: var(--ink);
 }
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  flex: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.lang-switch a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--ink-mute);
+  padding: 7px 9px;
+  background: var(--paper);
+}
+.lang-switch a + a {
+  border-left: 1px solid var(--line-strong);
+}
+.lang-switch a:hover {
+  color: var(--ink);
+  background: var(--card-2);
+}
+.lang-switch a[aria-current="true"] {
+  background: var(--petrol-deep);
+  color: #fff;
+}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -1662,6 +1692,10 @@ html:not(.no-js) .reveal.is-visible {
   }
   .site-nav .btn {
     margin-top: 14px;
+  }
+  .site-nav .lang-switch {
+    align-self: flex-start;
+    margin-top: 16px;
   }
   .nav-toggle {
     display: inline-flex;
