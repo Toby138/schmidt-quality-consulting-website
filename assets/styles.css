@@ -251,6 +251,7 @@ ul {
   font-size: 1.12rem;
   font-weight: 600;
   color: var(--ink);
+  white-space: nowrap;
 }
 .brand-text span:last-child {
   font-family: var(--font-mono);
@@ -258,6 +259,7 @@ ul {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-mute);
+  white-space: nowrap;
 }
 .site-nav {
   display: flex;
@@ -1632,6 +1634,14 @@ html:not(.no-js) .reveal.is-visible {
 }
 
 /* ---------- Responsiv ---------- */
+/* Kopfzeile: Der Zusatz unter der Wortmarke weicht, sobald Navigation,
+   CTA und Sprachumschalter die Zeile sonst ueberlaufen lassen. Greift
+   bis zum Burger-Menue bei 1080px. */
+@media (max-width: 1140px) {
+  .brand-text span:last-child {
+    display: none;
+  }
+}
 @media (max-width: 1020px) {
   .approach-fig,
   .why-grid,
@@ -1668,7 +1678,9 @@ html:not(.no-js) .reveal.is-visible {
     transform: translateX(-50%) rotate(135deg);
   }
 }
-@media (max-width: 900px) {
+/* Burger-Menue: greift ab 1080px statt 900px, seit der Sprachumschalter
+   zusaetzliche Breite in der Kopfzeile belegt. */
+@media (max-width: 1080px) {
   .site-nav {
     position: absolute;
     top: 100%;
